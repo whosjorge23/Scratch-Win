@@ -10,6 +10,8 @@ import SwiftUI
 struct Home: View {
     
     @State var onFinish : Bool = false
+    @State var randomAmount : Int = Int.random(in: 0...10)
+    var amounts = [0,1,2,5,10,15,20,25,50,100,1000]
     
     var body: some View {
         VStack(alignment: .center, spacing: nil, content: {
@@ -17,20 +19,20 @@ struct Home: View {
             ScratchCardView(cursorSize: 50, onFinish: $onFinish) {
                 //Body Content
                 VStack(alignment: .center, spacing: nil, content: {
-                    Image("2")
+                    Image("win")
                         .resizable()
                         .scaledToFit()
                     Text("YOU WON")
                         .font(.title3)
                         .fontWeight(.bold)
-                    Text("$300")
-                        .font(.title3)
+                    Text("$\(amounts[randomAmount])")
+                        .font(.title)
                         .fontWeight(.bold)
                 })
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.red)
-                .foregroundColor(.white)
+                .background(Color.white)
+                .foregroundColor(.gray)
                 
             } overlayView: {
                 //Overlay
@@ -47,6 +49,10 @@ struct Home: View {
             HStack(alignment: .center, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                 Button(action: {
                     onFinish = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.30) {
+                        randomAmount = Int.random(in: 0...10)
+                    }
+                    
                 }, label: {
                     Text("Button")
                 })
