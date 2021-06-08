@@ -10,12 +10,12 @@ import SwiftUI
 struct Home: View {
     
     @State var onFinish : Bool = false
-    @State var randomAmount : Int = Int.random(in: 0...10)
-    var amounts = [0,1,2,5,10,15,20,25,50,100,1000]
+    @State var randomAmount : Int = Int.random(in: 0...22)
+    var amounts = [0,0,0,0,1,1,1,1,2,2,2,2,2,2,2,5,10,15,20,25,50,100,1000]
+    @State var score = 0
     
     var body: some View {
         VStack(alignment: .center, spacing: nil, content: {
-            
             ScratchCardView(cursorSize: 50, onFinish: $onFinish) {
                 //Body Content
                 VStack(alignment: .center, spacing: nil, content: {
@@ -40,23 +40,35 @@ struct Home: View {
                     .resizable()
                     .scaledToFit()
             }
-
-            
+            Text("Money: \(score)")
+                .foregroundColor(.white)
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding(30)
         })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.ignoresSafeArea())
         .overlay(
-            HStack(alignment: .center, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+            HStack(alignment: .center, spacing: nil, content: {
                 Button(action: {
+                    if onFinish == true {
+                        score += amounts[randomAmount]
+                    }
                     onFinish = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.30) {
                         randomAmount = Int.random(in: 0...10)
                     }
                     
                 }, label: {
-                    Text("Button")
+                    Capsule()
+                        .frame(width: 120, height: 50, alignment: .center)
+                        .accentColor(.gray)
+                        .overlay(
+                            Text("Buy One")
+                                .foregroundColor(.black)
+                                .fontWeight(.bold)
+                        )
                 })
-                
             })
             .padding()
             ,alignment: .top
