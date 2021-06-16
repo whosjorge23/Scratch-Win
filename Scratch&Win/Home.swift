@@ -51,16 +51,20 @@ struct Home: View {
         })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.ignoresSafeArea())
+        .onChange(of: onFinish, perform: { value in
+            if value {
+                score += amounts[randomAmount]
+            }
+        })
         .overlay(
             HStack(alignment: .center, spacing: nil, content: {
                 Button(action: {
                     if onFinish == true {
-                        score += amounts[randomAmount]
                         buyTicket = true
                     }
                     onFinish = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.30) {
-                        randomAmount = Int.random(in: 0...10)
+                        randomAmount = Int.random(in: 0...22)
                         if score > 1 && buyTicket == true{
                             score -= 1
                             buyTicket = false
