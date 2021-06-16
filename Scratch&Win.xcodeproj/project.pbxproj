@@ -12,6 +12,7 @@
 		ED12B64D266F61020060E5F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED12B64C266F61020060E5F9 /* Assets.xcassets */; };
 		ED12B650266F61020060E5F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED12B64F266F61020060E5F9 /* Preview Assets.xcassets */; };
 		ED12B659266F62460060E5F9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12B658266F62460060E5F9 /* Home.swift */; };
+		ED8E5E9426710AC3004EBC64 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8E5E9326710AC3004EBC64 /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		ED12B64F266F61020060E5F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ED12B651266F61020060E5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED12B658266F62460060E5F9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		ED8E5E9326710AC3004EBC64 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				ED12B648266F61000060E5F9 /* Scratch_WinApp.swift */,
 				ED12B64A266F61000060E5F9 /* ContentView.swift */,
 				ED12B658266F62460060E5F9 /* Home.swift */,
+				ED8E5E9326710AC3004EBC64 /* SwiftUIView.swift */,
 				ED12B64C266F61020060E5F9 /* Assets.xcassets */,
 				ED12B651266F61020060E5F9 /* Info.plist */,
 				ED12B64E266F61020060E5F9 /* Preview Content */,
@@ -143,6 +146,7 @@
 			files = (
 				ED12B64B266F61000060E5F9 /* ContentView.swift in Sources */,
 				ED12B659266F62460060E5F9 /* Home.swift in Sources */,
+				ED8E5E9426710AC3004EBC64 /* SwiftUIView.swift in Sources */,
 				ED12B649266F61000060E5F9 /* Scratch_WinApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

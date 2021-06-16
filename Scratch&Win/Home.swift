@@ -10,16 +10,17 @@ import SwiftUI
 struct Home: View {
     
     @State var onFinish : Bool = false
+    @State var buyTicket : Bool = false
     @State var randomAmount : Int = Int.random(in: 0...22)
     var amounts = [0,0,0,0,1,1,1,1,2,2,2,2,2,2,2,5,10,15,20,25,50,100,1000]
-    @State var score = 0
+    @State var score = 5
     
     var body: some View {
         VStack(alignment: .center, spacing: nil, content: {
             ScratchCardView(cursorSize: 50, onFinish: $onFinish) {
                 //Body Content
                 VStack(alignment: .center, spacing: nil, content: {
-                    Image("win")
+                    Image("win2")
                         .resizable()
                         .scaledToFit()
                     Text("YOU WON")
@@ -36,11 +37,13 @@ struct Home: View {
                 
             } overlayView: {
                 //Overlay
-                Image("1")
+                Image("scratch")
                     .resizable()
                     .scaledToFit()
+//                SwiftUIView()
+//                    .foregroundColor(.blue)
             }
-            Text("Money: \(score)")
+            Text("Money: $\(score)")
                 .foregroundColor(.white)
                 .font(.title)
                 .fontWeight(.semibold)
@@ -53,10 +56,15 @@ struct Home: View {
                 Button(action: {
                     if onFinish == true {
                         score += amounts[randomAmount]
+                        buyTicket = true
                     }
                     onFinish = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.30) {
                         randomAmount = Int.random(in: 0...10)
+                        if score > 1 && buyTicket == true{
+                            score -= 1
+                            buyTicket = false
+                        }
                     }
                     
                 }, label: {
